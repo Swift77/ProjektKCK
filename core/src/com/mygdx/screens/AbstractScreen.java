@@ -9,11 +9,11 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.mygdx.game.ProjektKCK;
 
-public abstract class AbstractScreen implements Screen {
+public abstract class AbstractScreen implements Screen {   //screen na ktorym budujemy pozostale , zawiera scene i kamere
 	
 	protected ProjektKCK game;
 	protected Stage stage;
-	private OrthographicCamera camera;
+	protected OrthographicCamera camera;
 	protected SpriteBatch spriteBatch;
 	
 	public AbstractScreen(ProjektKCK game) {
@@ -26,8 +26,9 @@ public abstract class AbstractScreen implements Screen {
 	
 	private void createCamera() {
 		camera = new OrthographicCamera();
-		camera.setToOrtho(false,ProjektKCK.WIDTH,ProjektKCK.HEIGHT);
+		camera.setToOrtho(false,6000,6000);  //6000x6000 rozmiar naszej mapy
 		camera.update();
+		
 	}
 
 	public void show (){
